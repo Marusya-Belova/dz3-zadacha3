@@ -8,6 +8,7 @@ public class CreditPaymentService {
         int period = tern * month;
         double pow = Math.pow(1 + monthPercent, period);
         double costCredit = (period * amount * monthPercent * pow) / (pow - 1);
+        costCredit = (Math.floor(costCredit*100+0.5))/100;
         double payment = costCredit / period;
         return payment;
     }
